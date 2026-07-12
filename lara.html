@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lara Raj — MISSCHIEF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;900&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+
+:root{
+  --ink:#0b0a0c;
+  --panel:#17141a;
+  --panel-2:#1e1a22;
+  --paper:#ede6da;
+  --paper-dim:#c9c0b2;
+  --accent:#6f5ea6;
+  --accent-bright:#9784d1;
+  --muted:#847d8a;
+  --hair:rgba(237,230,218,0.12);
+  --display:'Big Shoulders Display', sans-serif;
+  --body:'Newsreader', serif;
+  --mono:'Space Mono', monospace;
+}
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{
+  background:var(--ink); color:var(--paper); font-family:var(--body);
+  font-size:17px; line-height:1.7; overflow-x:hidden;
+}
+::selection{ background:var(--accent); color:var(--paper); }
+a{ color:inherit; text-decoration:none; }
+img{ max-width:100%; display:block; }
+
+.grain{
+  position:fixed; inset:0; pointer-events:none; z-index:200; opacity:0.05; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+}
+
+.wrap{ max-width:1180px; margin:0 auto; padding:0 32px; }
+.stamp{
+  display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--accent-bright); border:1.5px solid currentColor; padding:5px 12px; transform:rotate(-4deg); position:relative;
+}
+.stamp::before{ content:""; position:absolute; inset:2px; border:1px solid currentColor; opacity:0.5; }
+
+header{
+  position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between;
+  padding:22px 32px; mix-blend-mode:difference;
+}
+.wordmark-nav{ font-family:var(--display); font-weight:900; font-size:22px; letter-spacing:0.02em; text-transform:uppercase; }
+nav ul{ list-style:none; display:flex; gap:28px; }
+nav a{ font-family:var(--mono); font-size:12px; letter-spacing:0.12em; text-transform:uppercase; padding-bottom:2px; border-bottom:1px solid transparent; }
+nav a:hover{ border-color:currentColor; }
+
+.hero{
+  min-height:100svh; display:grid; grid-template-columns:1fr 1fr; align-items:stretch; position:relative;
+  padding-top:88px;
+}
+.hero-photo{ position:relative; overflow:hidden; filter:grayscale(1) contrast(1.1); order:2; }
+.hero-photo img{ width:100%; height:100%; object-fit:cover; min-height:420px; }
+.hero-photo::after{ content:""; position:absolute; inset:0; mix-blend-mode:color; background:var(--accent); opacity:0.5; }
+.hero-bio{
+  display:flex; flex-direction:column; justify-content:center; padding:80px 64px; order:1;
+  background:radial-gradient(ellipse 70% 60% at 70% 20%, rgba(111,94,166,0.22), transparent 60%), var(--ink);
+}
+.hero-bio .stamp{ margin-bottom:24px; align-self:flex-start; }
+.hero-bio h1{
+  font-family:var(--display); font-weight:900; text-transform:uppercase; font-size:clamp(52px,7vw,96px);
+  line-height:0.86; margin-bottom:28px; text-shadow:3px 3px 0 rgba(111,94,166,0.55);
+}
+.hero-bio p{ color:var(--paper-dim); font-size:16px; max-width:56ch; margin-bottom:16px; }
+.hero-bio p:last-of-type{ margin-bottom:32px; }
+.spotify-btn{
+  display:inline-flex; align-items:center; gap:10px; align-self:flex-start;
+  font-family:var(--mono); font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
+  border:1px solid var(--accent-bright); color:var(--paper); padding:14px 26px; transition:all 0.25s ease;
+}
+.spotify-btn:hover{ background:var(--accent); border-color:var(--accent); }
+
+section{ padding:100px 0; position:relative; }
+.section-head{
+  display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:48px;
+  border-bottom:1px solid var(--hair); padding-bottom:24px; flex-wrap:wrap;
+}
+.section-head h2{
+  font-family:var(--display); font-weight:800; text-transform:uppercase; font-size:clamp(30px,4.5vw,50px);
+  letter-spacing:-0.01em;
+}
+.section-head p{ color:var(--muted); font-family:var(--mono); font-size:12px; letter-spacing:0.04em; }
+
+.social-links .wrap{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:24px; padding:40px 32px; background:var(--panel); }
+.social-links h2{ font-family:var(--display); font-weight:800; text-transform:uppercase; font-size:26px; }
+.icons{ display:flex; gap:14px; }
+.icons a{
+  width:46px; height:46px; border:1px solid var(--hair); display:flex; align-items:center; justify-content:center;
+  font-size:16px; transition:all 0.25s ease;
+}
+.icons a:hover{ background:var(--accent); border-color:var(--accent); }
+
+.gallery-grid{
+  display:grid; grid-template-columns:repeat(4, 1fr); gap:4px; border-top:1px solid var(--hair); padding-top:4px;
+}
+.gallery-grid a{ position:relative; aspect-ratio:1; overflow:hidden; display:block; filter:grayscale(1) contrast(1.1); }
+.gallery-grid img{ width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease, filter 0.5s ease; }
+.gallery-grid a::after{ content:""; position:absolute; inset:0; mix-blend-mode:color; background:var(--accent); opacity:0; transition:opacity 0.35s ease; }
+.gallery-grid a:hover::after{ opacity:0.55; }
+.gallery-grid a:hover img{ transform:scale(1.08); filter:grayscale(0.4); }
+
+.katseye-note{
+  display:flex; align-items:center; gap:28px; padding:36px; background:var(--panel); border:1px solid var(--hair); margin-top:60px; flex-wrap:wrap;
+}
+.katseye-note .stamp{ transform:rotate(-6deg); flex-shrink:0; }
+.katseye-note p{ color:var(--paper-dim); font-size:15px; max-width:60ch; }
+
+footer{ padding:70px 0 40px; display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px; }
+.footer-mark{ font-family:var(--display); font-weight:900; text-transform:uppercase; font-size:clamp(36px,6vw,72px); color:var(--panel-2); -webkit-text-stroke:1px var(--hair); }
+.footer-meta{ font-family:var(--mono); font-size:11.5px; color:var(--muted); letter-spacing:0.06em; text-align:right; }
+.footer-meta a{ color:var(--paper-dim); border-bottom:1px solid var(--hair); }
+
+@media (max-width:900px){
+  .hero{ grid-template-columns:1fr; }
+  .hero-photo{ order:1; }
+  .hero-bio{ order:2; }
+  .hero-photo img{ min-height:340px; }
+  .hero-bio{ padding:56px 28px; }
+  .gallery-grid{ grid-template-columns:repeat(2,1fr); }
+  header{ padding:18px 20px; }
+  .social-links .wrap{ flex-direction:column; align-items:flex-start; }
+  footer{ flex-direction:column; align-items:flex-start; }
+  .footer-meta{ text-align:left; }
+}
+:focus-visible{ outline:2px solid var(--accent-bright); outline-offset:3px; }
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header>
+  <a class="wordmark-nav" href="index.html">Misschief</a>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="rhea.html">Rhea</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" style="padding-bottom:0;">
+  <div class="hero-photo">
+    <img src="lara.png" alt="Lara Raj">
+  </div>
+  <div class="hero-bio">
+    <span class="stamp">Artist 02 · Misschief</span>
+    <h1>Lara Raj</h1>
+    <p>Lara Raj is a musician, innovator, and member of the global pop group Katseye. Blending artistry with technology, she creates immersive soundscapes that inspire and connect audiences worldwide.</p>
+    <p>She joined Katseye, an international girl group formed through a global talent competition by Hybe and Geffen Records, after being discovered through her song covers on social media. The group debuted with the EP <em>Soft Is Strong</em> and followed with <em>Beautiful Chaos</em>, earning international acclaim and their first VMA win.</p>
+    <p>Lara is openly queer, having come out during a Weverse livestream, where she reclaimed the term "half-fruitcake" to describe her identity. A passionate advocate for South Asian and LGBTQ+ representation, she draws inspiration from artists like Maitreyi Ramakrishnan and Avantika Vandanapu.</p>
+    <p>Beyond music, Lara has contributed to social causes, including appearing in Michelle Obama's Global Girls Alliance campaign in 2018, where she performed "Freedom" alongside the former First Lady. Known for her authenticity and hands-on creative process, she often produces music from her bedroom studio with her sister, Rhea Raj.</p>
+    <a class="spotify-btn" href="https://open.spotify.com/artist/3c0gDdb9lhnHGFtP4prQpn?si=xhM8ry13SiK9vXfLGRIylg" target="_blank" rel="noopener"><i class="fab fa-spotify"></i> Listen on Spotify</a>
+  </div>
+</section>
+
+<section class="social-links">
+  <div class="wrap">
+    <h2>Connect with Lara</h2>
+    <div class="icons">
+      <a href="https://www.instagram.com/lararajj?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@lararajj?" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="https://open.spotify.com/artist/3c0gDdb9lhnHGFtP4prQpn?si=xhM8ry13SiK9vXfLGRIylg" target="_blank" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+      <a href="https://www.youtube.com/@katseyeworld" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Media</h2>
+      <p>22 frames from the archive</p>
+    </div>
+    <div class="katseye-note" style="margin-bottom:48px; margin-top:0;">
+      <span class="stamp">Katseye</span>
+      <p>A global pop group blending innovation, rhythm, and artistry, Lara's second stage for the same creative energy she brings to Misschief.</p>
+    </div>
+  </div>
+  <div class="gallery-grid">
+    <a href="lara%20pic%200.png" target="_blank"><img src="lara%20pic%200.png" alt="Lara Raj"></a>
+    <a href="lara%20pic%2011.png" target="_blank"><img src="lara%20pic%2011.png" alt="Lara Raj"></a>
+    <a href="lara%20pic%2012.png" target="_blank"><img src="lara%20pic%2012.png" alt="Lara Raj"></a>
+    <a href="lara%20pic%203.png" target="_blank"><img src="lara%20pic%203.png" alt="Lara Raj"></a>
+    <a href="lara%20pic%201.png" target="_blank"><img src="lara%20pic%201.png" alt="Lara Raj"></a>
+    <a href="lara%20pic%202.png" target="_blank"><img src="lara%20pic%202.png" alt="Lara Raj"></a>
+    <a href="lara%20pic%204.png" target="_blank"><img src="lara%20pic%204.png" alt="Lara Raj"></a>
+    <a href="lara%20pic%2013.png" target="_blank"><img src="lara%20pic%2013.png" alt="Lara Raj"></a>
+    <a href="lara%20pic%205.png" target="_blank"><img src="lara%20pic%205.png" alt="Lara Raj"></a>
+    <a href="lara%20pic%2015.png" target="_blank"><img src="lara%20pic%2015.png" alt="Lara Raj"></a>
+    <a href="lara%20pic%206.png" target="_blank"><img src="lara%20pic%206.png" alt="Lara Raj"></a>
+    <a href="lara%20pic%2010.png" target="_blank"><img src="lara%20pic%2010.png" alt="Lara Raj"></a>
+    <a href="lara%20pic%2021.png" target="_blank"><img src="lara%20pic%2021.png" alt="Lara Raj"></a>
+    <a href="lara%20pic%209.png" target="_blank"><img src="lara%20pic%209.png" alt="Lara Raj"></a>
+    <a href="lara%20pic%208.png" target="_blank"><img src="lara%20pic%208.png" alt="Lara Raj"></a>
+    <a href="lara%20pic%2026.png" target="_blank"><img src="lara%20pic%2026.png" alt="Lara Raj"></a>
+    <a href="lara%20pic%2023.png" target="_blank"><img src="lara%20pic%2023.png" alt="Lara Raj"></a>
+    <a href="lara%20pic%2019.png" target="_blank"><img src="lara%20pic%2019.png" alt="Lara Raj"></a>
+    <a href="lara%20pic%2022.png" target="_blank"><img src="lara%20pic%2022.png" alt="Lara Raj"></a>
+    <a href="lara%20pic%207.png" target="_blank"><img src="lara%20pic%207.png" alt="Lara Raj"></a>
+    <a href="lara%20pic%2020.png" target="_blank"><img src="lara%20pic%2020.png" alt="Lara Raj"></a>
+    <a href="lara%20pic%2025.png" target="_blank"><img src="lara%20pic%2025.png" alt="Lara Raj"></a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px; width:100%;">
+    <div class="footer-mark">Lara Raj</div>
+    <div class="footer-meta">
+      © 2025 Misschief Records<br>
+      <a href="index.html">Back to Misschief</a> · <a href="rhea.html">Rhea Raj</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
